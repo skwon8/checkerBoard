@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .flexed {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .flexed1 {
+            background-color: rgb(157, 182, 157);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            margin: 0;
+            padding: 10px;
+        }
+
+        table tr td {
+            width: 50px;
+            height: 50px;
+        }
+        .color1{
+            background-color: rgb(157, 182, 157);
+        }
+        .color2{
+            background-color: beige;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="flexed1">!!!CHECKERBOARD!!!</h1>
+        <div class="flexed">
+            rows: {{rows}}
+            columns: {{columns}}
+        </div>
+        <div class="flexed">
+            <table>
+                {% for i in range(0, rows): %}
+                    <tr>
+                        {% for j in range(0, columns): %}
+                        <td class="color{{ (i + j) % 2+1 }}"></td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+
+</body>
+</html>
